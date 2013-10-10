@@ -1,7 +1,6 @@
 'use strict';
 
 function mainController($scope, $cookies) {
-	console.log('MainCtrl ', $scope, $cookies);
 	
   	$scope.isContinueDisplayed = function() {
   		return $cookies['savedGames'] == null;

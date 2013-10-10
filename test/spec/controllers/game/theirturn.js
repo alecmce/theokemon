@@ -3,7 +3,7 @@
 describe('Controller: GameTheirturnCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('theokemonApp'));
+  beforeEach(module('theokemonApp', ['ngCookies']));
 
   var GameTheirturnCtrl,
     scope;
@@ -15,8 +15,4 @@ describe('Controller: GameTheirturnCtrl', function () {
       $scope: scope
     });
   }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });
