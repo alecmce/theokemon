@@ -1,0 +1,81 @@
+.btn-attack {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+.btn-attack:hover,
+.btn-attack:focus,
+.btn-attack:active,
+.btn-attack.active {
+  background-color: #e60000;
+  border-color: #cc0000;
+}
+.btn-attack.disabled:hover,
+.btn-attack.disabled:focus,
+.btn-attack.disabled:active,
+.btn-attack.disabled.active,
+.btn-attack[disabled]:hover,
+.btn-attack[disabled]:focus,
+.btn-attack[disabled]:active,
+.btn-attack[disabled].active,
+fieldset[disabled] .b tn-attack:hover,
+fieldset[disabled] .btn-attack:focus,
+fieldset[disabled] .btn-attack:active,
+fieldset[disabled] .btn-attack.active {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+.btn-block {
+  background-color: #00ff00;
+  border-color: #00ff00;
+}
+.btn-block:hover,
+.btn-block:focus,
+.btn-block:active,
+.btn-block.active {
+  background-color: #00e600;
+  border-color: #00cc00;
+}
+.btn-block.disabled:hover,
+.btn-block.disabled:focus,
+.btn-block.disabled:active,
+.btn-block.disabled.active,
+.btn-block[disabled]:hover,
+.btn-block[disabled]:focus,
+.btn-block[disabled]:active,
+.btn-block[disabled].active,
+fieldset[disabled] .btn-block:hover,
+fieldset[disabled] .btn-block:focus,
+fieldset[disabled] .btn-block:active,
+fieldset[disabled] .btn-block.active {
+  background-color: #00ff00;
+  border-color: #00ff00;
+}
+
+
+.btn-special {
+  background-color: #1E90FF;
+  border-color: #1E90FF;
+}
+.btn-special:hover,
+.btn-special:focus,
+.btn-special:active,
+.btn-special.active {
+  background-color: #0483ff;
+  border-color: #0077ea;
+}
+.btn-special.disabled:hover,
+.btn-special.disabled:focus,
+.btn-special.disabled:active,
+.btn-special.disabled.active,
+.btn-special[disabled]:hover,
+.btn-special[disabled]:focus,
+.btn-special[disabled]:active,
+.btn-special[disabled].active,
+fieldset[disabled] .btn-special:hover,
+fieldset[disabled] .btn-special:focus,
+fieldset[disabled] .btn-special:active,
+fieldset[disabled] .btn-special.active {
+  background-color: #1E90FF;
+  border-color: #1E90FF;
+}

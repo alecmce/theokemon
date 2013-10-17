@@ -1,1 +1,17 @@
-<p>This is the game view.</p>
+<div id="player">
+	<p>Theo</p>
+	<div class="btn-group">
+	  <button class="btn-attack" ng-model="player.move" btn-radio="'attack'">Attack</button>
+	  <button class="btn-block" ng-model="player.move" btn-radio="'block'">Block</button>
+	  <button class="btn-special" ng-model="player.move" btn-radio="'special'">Special</button>
+    <tt>move = {{player.move}}</tt>
+  </div>
+</div>
+<div id="npc">
+	<div class="btn-group">
+		<button class="btn-attack" ng-model="npc.move" btn-radio="'attack'">Attack</button>
+	  <button class="btn-block" ng-model="npc.move" btn-radio="'block'">Block</button>
+	  <button class="btn-special" ng-model="npc.move" btn-radio="'special'">Special</button>
+  	<tt>move = {{npc.move}}</tt>
+  </div>
+</div>

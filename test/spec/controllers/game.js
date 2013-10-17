@@ -6,44 +6,65 @@ describe('Controller: GameCtrl -', function () {
   beforeEach(module('theokemonApp'));
 
   // Initialize the controller and a mock scope
-  var controller, scope, cookies;
+  var scope, cookies, controller, fight, player, npc;
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     cookies = {};
     controller = $controller('GameCtrl', {$scope: scope, $cookies: cookies});
+    fight = scope.fight;
+    player = scope.player;
+    npc = scope.npc;
   }));
 
-  describe('player', function() {
+  function makeMonster(speed, hp) {
+    var m = new Monster();
+    m.speed = speed;
+    m.hp = hp;
+    return m;
+  }
 
-    it('should be defined', function () {
-      expect(scope.player).toBeDefined();
+  describe('fight', function() {
+
+    it('should apply attacks', function() {
+      player.active = makeMonster(5, 10);
+      npc.active = makeMonster(3, 10);
+      fight.move(new Attack(2), new Attack(6));
+
+      expect(player.active.hp).toEqual(4);
+      expect(npc.active.hp).toEqual(8);
     });
 
-    it('should have a monster', function() {
-      expect(scope.player.monster).toBeDefined();
-    });
-  });
+    it('should not apply attacks from beaten monsters', function() {
+      player.active = makeMonster(5, 10);
+      npc.active = makeMonster(3, 10);
+      fight.move(new Attack(12), new Attack(1));
 
-  describe('npc', function() {
-
-    it('should be defined', function() {
-      expect(scope.npc).toBeDefined();
+      expect(npc.active.hp).toEqual(0);
+      expect(player.active.hp).toEqual(10);
     });
 
-    it('should have a monster', function() {
-      expect(scope.npc.monster).toBeDefined();
+    it('should apply blocks', function() {
+      player.active = makeMonster(5, 10);
+      npc.active = makeMonster(3, 10);
+      fight.move(new Attack(5), new Block(2));
+
+      expect(npc.active.hp).toEqual(7);
+      expect(player.active.hp).toEqual(10);
     });
+
+    it('should apply swaps before attacks', function() {
+      var a = makeMonster(5, 10);
+      var b = makeMonster(6, 5);
+
+      player.active = a;
+      player.bench = [b];
+      npc.active = makeMonster(3, 10);
+      fight.move(new Swap(player.bench[0]), new Attack(3));
+
+      expect(a.hp).toEqual(10);
+      expect(b.hp).toEqual(2);
+    });
+
   });
 
-  it('should be players turn if player has fastest monster', function() {
-    scope.player.monster.speed = 5;
-    scope.npc.monster.speed = 3;
-    expect(scope.fight.isTurn()).toEqual(scope.player);
-  });
-
-  it('should be players turn if npc has fastest monster', function() {
-    scope.player.monster.speed = 3;
-    scope.npc.monster.speed = 5;
-    expect(scope.fight.isTurn()).toEqual(scope.npc);
-  });
 });
